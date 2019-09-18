@@ -5,6 +5,10 @@
   "repository": "https://github.com/RenatoSiqueira/DevPleno_Twit.git",
   "author": "Renato Siqueira <renatoelysiqueira@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "dotenv": "^8.1.0",
     "ejs": "^2.7.1",

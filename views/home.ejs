@@ -10,10 +10,16 @@
     <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Tweets Sobre #Apple</title>
+    <title>Tweets Sobre...</title>
 </head>
 
 <body>
+    <div>
+        <h1>Tweets sobre:</h1> <input class="form-control" type="text" id="topic" placeholder="topic">
+    </div>
+    <div class="card">
+        <p>Term</p>
+    </div>
     <div id="tweets"></div>
 
     <!-- Optional JavaScript -->
@@ -33,6 +39,12 @@
             const socket = io()
             socket.on('tweet', tweet => {
                 $("#tweets").append('<div><b>' + tweet.username + '</b> ' + tweet.text + '</div>')
+            })
+
+            $("#topic").keyup(key => {
+                if (key.keyCode === 13) {
+                    socket.emit('startStream', $('#topic').val())
+                }
             })
         })
     </script>
